@@ -1,0 +1,271 @@
+.main-navigation {
+  background:$color6;
+  padding:0 0;
+  border: 0;
+  border-bottom: 1px solid lighten($color5, 20%);
+  width: auto;
+  margin-bottom: 1.5em;
+  position: relative;
+
+  .menu:before {
+    @include menu-ornament();
+    left:-70px;
+    top:40px;
+  }
+  .menu:after {
+    @include menu-ornament();
+    right:-70px;
+    top:40px;
+    transform-style: preserve-3d;
+    transform: rotateY(180deg);
+  }
+
+  .ornament {
+    background: #f0f;
+  }
+  
+  nav {
+    float: right;
+    left: -50%;
+    position: relative;
+
+    > ul {
+      left: 50%;
+      position: relative;
+    }
+  }
+  
+
+  a {
+    background: #fff;
+    color: $color2;
+    padding: 3em 2em;
+    font-weight: 600;
+    @include font-size(.9);
+    text-transform: uppercase;
+  }
+
+  ul, li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  ul {
+    position: relative;
+    z-index: 597;
+
+    li {
+      float: left;
+      min-height: 1px;
+      vertical-align: middle;
+
+      &.hover, &:hover {
+        position: relative;
+        z-index: 599;
+        cursor: default;
+      }
+    }
+
+    ul {
+      visibility: hidden;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      z-index: 598;
+      width: 100%;
+
+      li {
+        float: none;
+      }
+
+      ul {
+        top: 0;
+        left: 190px;
+        width: 190px;
+      }
+    }
+
+    li:hover > ul {
+      visibility: visible;
+    }
+
+    ul {
+      bottom: 0;
+      left: 0;
+      margin-top: 0;
+
+      li {
+        font-weight: normal;
+      }
+    }
+  }
+
+  a {
+    display: block;
+    line-height: 1em;
+    text-decoration: none;
+  }
+
+  > ul {
+    *display: inline-block;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  ul {
+
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+    
+    ul {
+    
+      min-width: 190px;
+
+      a {
+        background: #ffffff;
+        border-top: 1px solid #f0f0f0;
+        line-height: 150%;
+        padding: 1em 2em;
+      }
+
+      ul {
+        border-top: 0 none;
+      }
+
+      li {
+        position: relative;
+
+        &:first-child > a {
+          border-top: 1px solid #f0f0f0;
+        }
+
+        &:hover > a {
+          background: #fff;
+          color: #000;
+        }
+
+        &:last-child {
+
+          > a {
+            -moz-background-clip: padding;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+          }
+
+          &:hover > a {
+            -moz-background-clip: padding;
+            -webkit-background-clip: padding-box;
+            background-clip: padding-box;
+          }
+        }
+
+        &.has-sub > a:after {
+          content: '+';
+          position: absolute;
+          top: 50%;
+          right: 15px;
+          margin-top: -8px;
+        }
+      }
+    }
+
+    li {
+
+      &:hover > a, &.active > a {
+        background: none;
+        color: #000;
+      }
+
+      &.has-sub > a:after {
+        content: '+';
+        margin-left: 5px;
+      }
+
+      &.last ul {
+        left: auto;
+        right: 0;
+
+        ul {
+          left: auto;
+          right: 99.5%;
+        }
+      }
+    }
+  }
+
+
+
+  > ul > li > a {
+    line-height: 48px;
+    @include font-size(1);
+  }
+}
+
+
+.mobile-menu {
+  display:none;
+  padding:1em;
+  cursor: pointer;
+}
+
+
+
+
+@include max-screen(768px)  {
+  .mobile-menu {
+    display:block;
+    border-bottom:1px solid #f0f0f0;
+  }
+
+  .main-navigation {
+    
+    nav {
+      
+      float: none;
+      left:0;
+      position: relative;
+
+      > ul {
+        left: 0;
+        position: relative;
+      }
+    }
+    .menu {
+      display:none;
+    }
+
+    a {
+      background: #fff;
+      padding: 1em 1em;
+      font-weight: 600;
+      @include font-size(.8);
+      border-top: 1px solid #f0f0f0;
+    }
+
+    ul {
+
+      li {
+        float:none;
+      }
+      ul {
+        visibility: visible;
+        position: static;
+        top: 0;
+        left: 0;
+        z-index: 598;
+        width: 100%;
+      }
+    }
+  }
+
+
+
+}

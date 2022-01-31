@@ -1,0 +1,32 @@
+@mixin box-sizing($type) {
+    /* Acceptable values are border, content, and padding - content is the default W3C model */
+    box-sizing: #{$type}-box;
+    -webkit-box-sizing: #{$type}-box;
+    -moz-box-sizing: #{$type}-box;
+}
+@mixin vertical-gradient($start: #000, $stop: #FFF) { background: ($start + $stop) / 2;
+    background: -webkit-gradient(linear, left top, left bottom, from($start), to($stop));
+    background: -moz-linear-gradient(center top, $start 0%, $stop 100%);
+    background: -moz-gradient(center top, $start 0%, $stop 100%);
+}
+
+@mixin menu-ornament() {
+  content:' ';
+  width:56px;
+  height:30px;
+  display:inline-block;
+  position: absolute;
+  background-image: url(../img/ornament.svg);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
+  -o-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size:contain;
+}
+
+@mixin opacity($value){
+  $IEValue: $value*100;
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+}

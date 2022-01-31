@@ -1,0 +1,68 @@
+// variables
+$color1: #C7BB73; /* Logo color */
+$color2: #444444; /* text  */
+$color3: #F5F5F1; /* body background */
+$color4: #E97F5F; /* text links */
+$color5: #BEC0A8; /* widget header background */
+$color6: #FFFFFF; /* widget background, post background */
+$color7: #58695F; /* header bg */
+
+
+$body-bg-image : 'textured_paper.png';
+
+
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+// default styling
+body {
+	background: $color3;
+	color: $color2;
+}
+
+body.custom-background {
+	background-position: center;
+	background-repeat: no-repeat;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	background-size: cover;
+}
+
+a {
+	color: $color4;
+	text-decoration: none;
+}
+
+h1 a {
+	color: $color1;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+input, textarea {
+	border: 1px solid $color5;
+	background: $color6;
+	padding: 0.3em 0.4em;
+}
+
+.site {
+	overflow: hidden;
+	background: rgba($color1, 0.85);
+}
+
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
+	height: auto;
+}
+
+
+
